@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>RAYY — Collection</title>
+
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/category.css">
+  <link rel="stylesheet" href="css/product-modal.css">
+</head>
+
+<body>
+
+  <!-- ================= NAVBAR ================= -->
+
+  <header class="navbar">
+
+    <a class="logo" href="index.html">
+      RAYY
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+
+      <a href="index.html">
+        Home
+      </a>
+
+      <a class="active" href="collections.html">
+        Collections
+      </a>
+
+      <a href="customize.html">
+        Customize
+      </a>
+
+      <a href="contact.html">
+        Contact
+      </a>
+
+    </nav>
+
+    <button
+      class="menu-toggle"
+      id="menuToggle"
+      aria-label="Toggle navigation"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </header>
+
+
+  <!-- ================= MAIN ================= -->
+
+  <main class="category-page">
+
+    <!-- CATEGORY HEADER -->
+
+    <section class="category-header">
+
+      <p class="section-label">
+        RAYY COLLECTION
+      </p>
+
+      <h1 id="categoryTitle">
+        COLLECTION
+      </h1>
+
+      <p
+        class="category-description"
+        id="categoryDescription"
+      >
+        Explore the latest RAYY pieces.
+      </p>
+
+    </section>
+
+
+    <!-- PRODUCT GRID -->
+
+    <section class="products-section">
+
+      <div
+        class="product-grid"
+        id="productGrid"
+      >
+        <!--
+          Products will be inserted here
+          dynamically using category.js
+        -->
+      </div>
+
+      <div
+        class="empty-state"
+        id="emptyState"
+        hidden
+      >
+        <h2>
+          No products found.
+        </h2>
+
+        <p>
+          This collection doesn't have any products yet.
+        </p>
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ================= PRODUCT PREVIEW MODAL ================= -->
+
+  <div
+    class="product-modal"
+    id="productModal"
+    aria-hidden="true"
+  >
+
+    <!-- Overlay -->
+
+    <div
+      class="product-modal-overlay"
+      id="productModalOverlay"
+    ></div>
+
+
+    <!-- Modal -->
+
+    <div
+      class="product-modal-content"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalProductTitle"
+    >
+
+      <!-- Close Button -->
+
+      <button
+        class="product-modal-close"
+        id="productModalClose"
+        aria-label="Close product preview"
+      >
+        ×
+      </button>
+
+
+      <!-- Product Image -->
+
+      <div class="product-modal-image-wrapper">
+
+        <img
+          id="modalProductImage"
+          src=""
+          alt=""
+        >
+
+      </div>
+
+
+      <!-- Product Information -->
+
+      <div class="product-modal-info">
+
+        <p
+          class="modal-product-category"
+          id="modalProductCategory"
+        >
+          PRODUCT
+        </p>
+
+        <h2 id="modalProductTitle">
+          Product Name
+        </h2>
+
+        <p
+          class="modal-product-price"
+          id="modalProductPrice"
+        >
+          ₹0
+        </p>
+
+        <p
+          class="modal-product-description"
+          id="modalProductDescription"
+        >
+          Product description.
+        </p>
+
+
+        <!-- Future options -->
+
+        <div
+          class="modal-product-options"
+          id="modalProductOptions"
+        >
+          <!--
+            Color and size selectors
+            will be added later.
+          -->
+        </div>
+
+
+        <!-- ACTION BUTTONS -->
+
+        <div class="modal-actions">
+
+          <button
+            class="modal-btn modal-btn-primary"
+            id="modalBuyButton"
+            type="button"
+          >
+            BUY NOW
+          </button>
+
+          <button
+            class="modal-btn modal-btn-secondary"
+            id="modalCustomizeButton"
+            type="button"
+          >
+            CUSTOMIZE
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ================= JAVASCRIPT ================= -->
+
+  <script src="js/main.js"></script>
+
+  <script
+    type="module"
+    src="js/category.js"
+  ></script>
+
+</body>
+</html>

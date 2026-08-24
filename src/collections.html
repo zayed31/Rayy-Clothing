@@ -3,41 +3,130 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>RAYY — Collections</title>
+
   <link rel="stylesheet" href="css/global.css">
 </head>
+
 <body>
+
+  <!-- ================= NAVBAR ================= -->
+
   <header class="navbar">
-    <a class="logo" href="index.html">RAYY</a>
+
+    <a class="logo" href="index.html">
+      RAYY
+    </a>
+
     <nav class="nav-links" id="navLinks">
-      <a href="index.html">Home</a>
-      <a class="active" href="collections.html">Collections</a>
-      <a href="customize.html">Customize</a>
-      <a href="contact.html">Contact</a>
+
+      <a href="index.html">
+        Home
+      </a>
+
+      <a class="active" href="collections.html">
+        Collections
+      </a>
+
+      <a href="contact.html">
+        Contact
+      </a>
+
     </nav>
-    <button class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></button>
+
+    <button
+      class="menu-toggle"
+      id="menuToggle"
+      aria-label="Toggle navigation"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
   </header>
 
+
+  <!-- ================= MAIN ================= -->
+
   <main class="page-shell">
-    <p class="section-label">RAYY COLLECTIONS</p>
-    <h1>SHOP BY<br><span>CATEGORY.</span></h1>
+
+    <p class="section-label">
+      RAYY COLLECTIONS
+    </p>
+
+    <h1>
+      SHOP BY<br>
+      <span>CATEGORY.</span>
+    </h1>
+
+
+    <!-- ================= CATEGORY CARDS ================= -->
 
     <div class="category-grid">
-      <a class="category-card" href="product.html?category=tshirts">
-        <div class="category-image">T-SHIRTS</div>
-        <h2>T-Shirts</h2>
+
+      <!-- T-SHIRTS -->
+
+      <a
+        class="category-card"
+        href="category.html?category=tshirts"
+      >
+
+        <div class="category-image">
+          T-SHIRTS
+        </div>
+
+        <h2>
+          T-Shirts
+        </h2>
+
       </a>
-      <a class="category-card" href="product.html?category=hoodies">
-        <div class="category-image">HOODIES</div>
-        <h2>Hoodies</h2>
+
+
+      <!-- HOODIES -->
+
+      <a
+        class="category-card"
+        href="category.html?category=hoodies"
+      >
+
+        <div class="category-image">
+          HOODIES
+        </div>
+
+        <h2>
+          Hoodies
+        </h2>
+
       </a>
-      <a class="category-card" href="product.html?category=sweatshirts">
-        <div class="category-image">SWEATSHIRTS</div>
-        <h2>Sweatshirts</h2>
+
+
+      <!-- SWEATSHIRTS -->
+
+      <a
+        class="category-card"
+        href="category.html?category=sweatshirts"
+      >
+
+        <div class="category-image">
+          SWEATSHIRTS
+        </div>
+
+        <h2>
+          Sweatshirts
+        </h2>
+
       </a>
+
     </div>
+
   </main>
 
+
+  <!-- ================= JAVASCRIPT ================= -->
+
   <script src="js/main.js"></script>
+
 </body>
 </html>
