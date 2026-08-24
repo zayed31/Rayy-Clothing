@@ -5,9 +5,7 @@ import {
 } from "./product-modal.js";
 
 
-// ==========================================
 // GET CATEGORY FROM URL
-// ==========================================
 
 const urlParams = new URLSearchParams(
   window.location.search
@@ -16,9 +14,7 @@ const urlParams = new URLSearchParams(
 const category = urlParams.get("category");
 
 
-// ==========================================
 // DOM ELEMENTS
-// ==========================================
 
 const productGrid =
   document.getElementById("productGrid");
@@ -33,9 +29,7 @@ const emptyState =
   document.getElementById("emptyState");
 
 
-// ==========================================
 // CATEGORY INFORMATION
-// ==========================================
 
 const categoryInfo = {
 
@@ -60,9 +54,7 @@ const categoryInfo = {
 };
 
 
-// ==========================================
 // SET CATEGORY HEADER
-// ==========================================
 
 function setCategoryHeader() {
 
@@ -91,9 +83,7 @@ function setCategoryHeader() {
 }
 
 
-// ==========================================
 // CREATE PRODUCT CARD
-// ==========================================
 
 function createProductCard(product) {
 
@@ -132,9 +122,7 @@ function createProductCard(product) {
   `;
 
 
-  // ========================================
   // OPEN PRODUCT PREVIEW
-  // ========================================
 
   card.addEventListener(
     "click",
@@ -150,9 +138,7 @@ function createProductCard(product) {
 }
 
 
-// ==========================================
 // RENDER PRODUCTS
-// ==========================================
 
 function renderProducts() {
 
@@ -202,9 +188,7 @@ function renderProducts() {
 }
 
 
-// ==========================================
 // EMPTY STATE
-// ==========================================
 
 function showEmptyState() {
 
@@ -215,9 +199,7 @@ function showEmptyState() {
 }
 
 
-// ==========================================
 // INITIALIZE PAGE
-// ==========================================
 
 setCategoryHeader();
 

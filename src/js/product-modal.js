@@ -1,6 +1,4 @@
-// ==========================================
 // DOM ELEMENTS
-// ==========================================
 
 const modal =
   document.getElementById("productModal");
@@ -51,16 +49,12 @@ const customizeButton =
   );
 
 
-// ==========================================
 // CURRENT PRODUCT
-// ==========================================
 
 let currentProduct = null;
 
 
-// ==========================================
 // OPEN PRODUCT PREVIEW
-// ==========================================
 
 export function openProductPreview(product) {
 
@@ -127,9 +121,7 @@ export function openProductPreview(product) {
 }
 
 
-// ==========================================
 // CLOSE PRODUCT PREVIEW
-// ==========================================
 
 export function closeProductPreview() {
 
@@ -153,9 +145,7 @@ export function closeProductPreview() {
 }
 
 
-// ==========================================
 // FORMAT CATEGORY NAME
-// ==========================================
 
 function formatCategoryName(category) {
 
@@ -171,9 +161,7 @@ function formatCategoryName(category) {
 }
 
 
-// ==========================================
 // CLOSE BUTTON
-// ==========================================
 
 closeButton.addEventListener(
   "click",
@@ -181,9 +169,7 @@ closeButton.addEventListener(
 );
 
 
-// ==========================================
 // OVERLAY CLICK
-// ==========================================
 
 modalOverlay.addEventListener(
   "click",
@@ -191,9 +177,7 @@ modalOverlay.addEventListener(
 );
 
 
-// ==========================================
 // ESC KEY
-// ==========================================
 
 document.addEventListener(
   "keydown",
@@ -212,9 +196,7 @@ document.addEventListener(
 );
 
 
-// ==========================================
 // BUY NOW
-// ==========================================
 
 buyButton.addEventListener(
   "click",
@@ -237,9 +219,7 @@ buyButton.addEventListener(
 );
 
 
-// ==========================================
 // CUSTOMIZE
-// ==========================================
 
 customizeButton.addEventListener(
   "click",
