@@ -1,7 +1,16 @@
+import {
+  openWhatsApp
+} from "./whatsapp.js";
+
+
+// ==========================================
 // DOM ELEMENTS
+// ==========================================
 
 const modal =
-  document.getElementById("productModal");
+  document.getElementById(
+    "productModal"
+  );
 
 const modalOverlay =
   document.getElementById(
@@ -38,6 +47,16 @@ const modalDescription =
     "modalProductDescription"
   );
 
+const sizeOptions =
+  document.getElementById(
+    "sizeOptions"
+  );
+
+const sizeError =
+  document.getElementById(
+    "sizeError"
+  );
+
 const buyButton =
   document.getElementById(
     "modalBuyButton"
@@ -49,33 +68,196 @@ const customizeButton =
   );
 
 
+// ==========================================
+// SIZE GUIDE ELEMENTS
+// ==========================================
+
+const sizeGuideButton =
+  document.getElementById(
+    "sizeGuideButton"
+  );
+
+const sizeGuideModal =
+  document.getElementById(
+    "sizeGuideModal"
+  );
+
+const sizeGuideOverlay =
+  document.getElementById(
+    "sizeGuideOverlay"
+  );
+
+const sizeGuideClose =
+  document.getElementById(
+    "sizeGuideClose"
+  );
+
+const sizeGuideImage =
+  document.getElementById(
+    "sizeGuideImage"
+  );
+
+const sizeGuideTitle =
+  document.getElementById(
+    "sizeGuideTitle"
+  );
+
+
+// ==========================================
 // CURRENT PRODUCT
+// ==========================================
 
 let currentProduct = null;
 
+let selectedSize = null;
 
+
+// ==========================================
+// SIZE CONFIGURATION
+// ==========================================
+
+const sizeConfig = {
+
+  oversize: [
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL"
+  ],
+
+  hoodies: [
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL",
+    "XXXL"
+  ],
+
+  polo: [
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL"
+  ]
+
+};
+
+
+// ==========================================
+// SIZE GUIDE CONFIGURATION
+// ==========================================
+
+const sizeGuideConfig = {
+
+  oversize: {
+
+    title:
+      "OVERSIZED T-SHIRT SIZE GUIDE",
+
+    image:
+      "assets/size-guides/tshirts-size-guide.png"
+
+  },
+
+
+  hoodies: {
+
+    title:
+      "HOODIE SIZE GUIDE",
+
+    image:
+      "assets/size-guides/hoodies-size-guide.png"
+
+  },
+
+
+  polo: {
+
+    title:
+      "POLO SIZE GUIDE",
+
+    image:
+      "assets/size-guides/polos-size-guide.png"
+
+  }
+
+};
+
+
+// ==========================================
 // OPEN PRODUCT PREVIEW
+// ==========================================
 
-export function openProductPreview(product) {
+export function openProductPreview(
+  product
+) {
 
   if (!product) {
     return;
   }
 
 
-  currentProduct = product;
+  currentProduct =
+    product;
 
 
-  // Product image
+  selectedSize =
+    null;
+
+
+  // ========================================
+  // PRODUCT IMAGE
+  // ========================================
+
+  const modalImageWrapper = document.querySelector(".product-modal-image-wrapper");
+
+  modalImage.classList.remove("loaded");
+  if (modalImageWrapper) {
+    modalImageWrapper.classList.add("image-loading-placeholder");
+    modalImageWrapper.classList.remove("loaded");
+  }
+
+  function handleModalImageLoad() {
+    modalImage.classList.add("loaded");
+    if (modalImageWrapper) {
+      modalImageWrapper.classList.add("loaded");
+    }
+  }
+
+  let activeDecodeUrl = product.image;
+
+  // Bind onload / onerror handlers before setting the src to ensure reliability
+  modalImage.onload = () => {
+    if (activeDecodeUrl === modalImage.src) {
+      handleModalImageLoad();
+    }
+  };
+
+  modalImage.onerror = () => {
+    if (activeDecodeUrl === modalImage.src) {
+      handleModalImageLoad();
+    }
+  };
 
   modalImage.src =
     product.image;
 
+
   modalImage.alt =
     product.title;
 
+  // Fallback for immediate cached hits
+  if (modalImage.complete) {
+    handleModalImageLoad();
+  }
 
-  // Product category
+
+  // ========================================
+  // PRODUCT CATEGORY
+  // ========================================
 
   modalCategory.textContent =
     formatCategoryName(
@@ -83,36 +265,61 @@ export function openProductPreview(product) {
     );
 
 
-  // Product title
+  // ========================================
+  // PRODUCT TITLE
+  // ========================================
 
   modalTitle.textContent =
     product.title;
 
 
-  // Product price
+  // ========================================
+  // PRODUCT PRICE
+  // ========================================
 
   modalPrice.textContent =
     `₹${product.price}`;
 
 
-  // Product description
+  // ========================================
+  // PRODUCT DESCRIPTION
+  // ========================================
 
   modalDescription.textContent =
     product.description ||
     "No description available.";
 
 
-  // Show modal
+  // ========================================
+  // SIZE OPTIONS
+  // ========================================
 
-  modal.classList.add("active");
+  renderSizeOptions(
+    product.category
+  );
+
+
+  // Reset error
+
+  sizeError.classList.remove(
+    "visible"
+  );
+
+
+  // ========================================
+  // SHOW MODAL
+  // ========================================
+
+  modal.classList.add(
+    "active"
+  );
+
 
   modal.setAttribute(
     "aria-hidden",
     "false"
   );
 
-
-  // Prevent background scrolling
 
   document.body.classList.add(
     "modal-open"
@@ -121,13 +328,121 @@ export function openProductPreview(product) {
 }
 
 
+// ==========================================
+// RENDER SIZE OPTIONS
+// ==========================================
+
+function renderSizeOptions(
+  category
+) {
+
+  sizeOptions.innerHTML = "";
+
+
+  const sizes =
+    sizeConfig[category] || [];
+
+
+  sizes.forEach(
+    size => {
+
+      const button =
+        document.createElement(
+          "button"
+        );
+
+
+      button.type =
+        "button";
+
+
+      button.className =
+        "size-option";
+
+
+      button.textContent =
+        size;
+
+
+      button.addEventListener(
+        "click",
+        () => {
+
+          selectSize(
+            size,
+            button
+          );
+
+        }
+      );
+
+
+      sizeOptions.appendChild(
+        button
+      );
+
+    }
+  );
+
+}
+
+
+// ==========================================
+// SELECT SIZE
+// ==========================================
+
+function selectSize(
+  size,
+  button
+) {
+
+  selectedSize =
+    size;
+
+
+  // Remove selection
+
+  document
+    .querySelectorAll(
+      ".size-option"
+    )
+    .forEach(
+      option => {
+
+        option.classList.remove(
+          "selected"
+        );
+
+      }
+    );
+
+
+  // Select current button
+
+  button.classList.add(
+    "selected"
+  );
+
+
+  // Hide error
+
+  sizeError.classList.remove(
+    "visible"
+  );
+
+}
+
+
+// ==========================================
 // CLOSE PRODUCT PREVIEW
+// ==========================================
 
 export function closeProductPreview() {
 
   modal.classList.remove(
     "active"
   );
+
 
   modal.setAttribute(
     "aria-hidden",
@@ -140,28 +455,49 @@ export function closeProductPreview() {
   );
 
 
-  currentProduct = null;
+  currentProduct =
+    null;
+
+
+  selectedSize =
+    null;
 
 }
 
 
-// FORMAT CATEGORY NAME
+// ==========================================
+// FORMAT CATEGORY
+// ==========================================
 
-function formatCategoryName(category) {
+function formatCategoryName(
+  category
+) {
 
-  if (!category) {
-    return "PRODUCT";
-  }
+  const names = {
+
+    oversize:
+      "OVERSIZED T-SHIRT",
+
+    hoodies:
+      "HOODIE",
+
+    polo:
+      "POLO"
+
+  };
 
 
-  return category
-    .replace("-", " ")
-    .toUpperCase();
+  return (
+    names[category] ||
+    "PRODUCT"
+  );
 
 }
 
 
+// ==========================================
 // CLOSE BUTTON
+// ==========================================
 
 closeButton.addEventListener(
   "click",
@@ -169,7 +505,9 @@ closeButton.addEventListener(
 );
 
 
-// OVERLAY CLICK
+// ==========================================
+// OVERLAY
+// ==========================================
 
 modalOverlay.addEventListener(
   "click",
@@ -177,18 +515,38 @@ modalOverlay.addEventListener(
 );
 
 
+// ==========================================
 // ESC KEY
+// ==========================================
 
 document.addEventListener(
   "keydown",
   event => {
 
     if (
-      event.key === "Escape" &&
-      modal.classList.contains("active")
+      event.key === "Escape"
     ) {
 
-      closeProductPreview();
+      if (
+        modal.classList.contains(
+          "active"
+        )
+      ) {
+
+        closeProductPreview();
+
+      }
+
+
+      if (
+        sizeGuideModal.classList.contains(
+          "active"
+        )
+      ) {
+
+        closeSizeGuide();
+
+      }
 
     }
 
@@ -196,7 +554,9 @@ document.addEventListener(
 );
 
 
+// ==========================================
 // BUY NOW
+// ==========================================
 
 buyButton.addEventListener(
   "click",
@@ -206,20 +566,47 @@ buyButton.addEventListener(
       return;
     }
 
-    console.log(
-      "BUY NOW:",
-      currentProduct
-    );
 
-    /*
-      WhatsApp logic will be added later.
-    */
+    // Size is required
+
+    if (!selectedSize) {
+
+      sizeError.classList.add(
+        "visible"
+      );
+
+      return;
+
+    }
+
+
+    // ======================================
+    // WHATSAPP MESSAGE
+    // ======================================
+
+    const message =
+
+      `Hi RAYY, I would like to order:
+
+Product: ${currentProduct.title}
+Product ID: ${currentProduct.id}
+Size: ${selectedSize}
+Price: ₹${currentProduct.price}
+
+Please let me know the next steps.`;
+
+
+    openWhatsApp(
+      message
+    );
 
   }
 );
 
 
+// ==========================================
 // CUSTOMIZE
+// ==========================================
 
 customizeButton.addEventListener(
   "click",
@@ -229,14 +616,123 @@ customizeButton.addEventListener(
       return;
     }
 
-    console.log(
-      "CUSTOMIZE:",
-      currentProduct
-    );
 
     /*
-      Customize logic will be added later.
+      We will implement the
+      customization flow later.
+
+      For now this just sends
+      the user to the customize page.
     */
 
+    window.location.href =
+      `customize.html?product=${currentProduct.id}`;
+
   }
+);
+
+
+// ==========================================
+// OPEN SIZE GUIDE
+// ==========================================
+
+sizeGuideButton.addEventListener(
+  "click",
+  () => {
+
+    if (!currentProduct) {
+      return;
+    }
+
+
+    openSizeGuide(
+      currentProduct.category
+    );
+
+  }
+);
+
+
+// ==========================================
+// OPEN SIZE GUIDE
+// ==========================================
+
+function openSizeGuide(
+  category
+) {
+
+  const guide =
+    sizeGuideConfig[category];
+
+
+  if (!guide) {
+    return;
+  }
+
+
+  sizeGuideTitle.textContent =
+    guide.title;
+
+
+  sizeGuideImage.src =
+    guide.image;
+
+
+  sizeGuideImage.alt =
+    guide.title;
+
+
+  sizeGuideModal.classList.add(
+    "active"
+  );
+
+
+  sizeGuideModal.setAttribute(
+    "aria-hidden",
+    "false"
+  );
+
+}
+
+
+// ==========================================
+// CLOSE SIZE GUIDE
+// ==========================================
+
+function closeSizeGuide() {
+
+  sizeGuideModal.classList.remove(
+    "active"
+  );
+
+
+  sizeGuideModal.setAttribute(
+    "aria-hidden",
+    "true"
+  );
+
+
+  sizeGuideImage.src =
+    "";
+
+}
+
+
+// ==========================================
+// SIZE GUIDE CLOSE BUTTON
+// ==========================================
+
+sizeGuideClose.addEventListener(
+  "click",
+  closeSizeGuide
+);
+
+
+// ==========================================
+// SIZE GUIDE OVERLAY
+// ==========================================
+
+sizeGuideOverlay.addEventListener(
+  "click",
+  closeSizeGuide
 );

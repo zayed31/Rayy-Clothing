@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,124 +10,119 @@
   <link rel="stylesheet" href="css/global.css">
 </head>
 
-<body>
 
-  <!-- NAVBAR -->
+<body class="collections-page">
 
-  <header class="navbar">
-
-    <a class="logo" href="index.html">
-      RAYY
-    </a>
-
-    <nav class="nav-links" id="navLinks">
-
-      <a href="index.html">
-        Home
-      </a>
-
-      <a class="active" href="collections.html">
-        Collections
-      </a>
-
-      <a href="contact.html">
-        Contact
-      </a>
-
-    </nav>
-
-    <button
-      class="menu-toggle"
-      id="menuToggle"
-      aria-label="Toggle navigation"
-    >
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
-  </header>
+  <header class="navbar"></header>
 
 
-  <!-- MAIN -->
+  <!-- ================= MAIN ================= -->
 
   <main class="page-shell">
 
-    <p class="section-label">
-      RAYY COLLECTIONS
-    </p>
+    <section class="page-header">
+      <div class="page-header-title">
+        <div class="technical-header-meta">
+          <span>[ BRAND: RAYY ]</span>
+          <span>[ SEASON: SS26 ]</span>
+          <span>[ INDEX: 03 CATEGORIES ]</span>
+        </div>
 
-    <h1>
-      SHOP BY<br>
-      <span>CATEGORY.</span>
-    </h1>
+        <h1>
+          <span class="word-wrap"><span class="animate-word delay-1">SHOP</span></span>
+          <span class="word-wrap"><span class="animate-word delay-2">BY</span></span><br>
+          <span class="word-wrap"><span class="animate-word delay-3">CATEGORY.</span></span>
+        </h1>
+      </div>
+
+      <div class="page-header-aside">
+        <div class="technical-spec-block animate-aside">
+          <div class="spec-row">
+            <span class="spec-label">FABRIC:</span>
+            <span class="spec-value">PREMIUM HEAVY DOUBLE-WEAVE COTTON</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-label">FIT PROFILE:</span>
+            <span class="spec-value">OVERSIZED RELAXED / DROP SHOULDER</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-label">GSM WEIGHTS:</span>
+            <span class="spec-value">240 GSM (TEES) | 430 GSM (HOODIES)</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-label">CURE DETAILS:</span>
+            <span class="spec-value">ANTI-PILLING / HIGH-DENSITY GRAPHICS</span>
+          </div>
+        </div>
+        <p class="page-header-description">
+          Curated streetwear categories made for everyday comfort, relaxed oversized fit, and customized style.
+        </p>
+      </div>
+    </section>
 
 
-    <!-- CATEGORY CARDS -->
+    <!-- ================= CATEGORY CARDS ================= -->
 
     <div class="category-grid">
 
-      <!-- T-SHIRTS -->
 
-      <a
-        class="category-card"
-        href="category.html?category=tshirts"
-      >
+      <!-- OVERSIZED T-SHIRTS -->
+
+      <a class="category-card" href="category.html?category=oversize">
 
         <div class="category-image">
-          T-SHIRTS
+          <img src="assets/products/oversizes/os001.webp" alt="Oversized T-Shirts" loading="lazy" decoding="async">
         </div>
 
-        <h2>
-          T-Shirts
-        </h2>
+        <div class="category-info">
+          <h2>OVERSIZED T-SHIRTS</h2>
+          <p class="category-meta">8 PIECES <span>—</span> SHOP NOW →</p>
+        </div>
 
       </a>
 
 
       <!-- HOODIES -->
 
-      <a
-        class="category-card"
-        href="category.html?category=hoodies"
-      >
+      <a class="category-card" href="category.html?category=hoodies">
 
         <div class="category-image">
-          HOODIES
+          <img src="assets/products/oversizehoodies/osh001.webp" alt="Hoodies" loading="lazy" decoding="async">
         </div>
 
-        <h2>
-          Hoodies
-        </h2>
+        <div class="category-info">
+          <h2>HOODIES</h2>
+          <p class="category-meta">3 PIECES <span>—</span> SHOP NOW →</p>
+        </div>
 
       </a>
 
 
-      <!-- SWEATSHIRTS -->
+      <!-- POLOS -->
 
-      <a
-        class="category-card"
-        href="category.html?category=sweatshirts"
-      >
+      <a class="category-card" href="category.html?category=polo">
 
         <div class="category-image">
-          SWEATSHIRTS
+          <img src="assets/products/polos/pt001.webp" alt="Polos" loading="lazy" decoding="async">
         </div>
 
-        <h2>
-          Sweatshirts
-        </h2>
+        <div class="category-info">
+          <h2>POLOS</h2>
+          <p class="category-meta">9 PIECES <span>—</span> SHOP NOW →</p>
+        </div>
 
       </a>
+
 
     </div>
 
   </main>
 
 
-  <!-- JAVASCRIPT -->
+  <!-- ================= JAVASCRIPT ================= -->
 
   <script src="js/main.js"></script>
 
 </body>
+
 </html>

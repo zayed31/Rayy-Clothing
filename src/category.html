@@ -1,100 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>RAYY — Collection</title>
 
   <link rel="stylesheet" href="css/global.css">
+
   <link rel="stylesheet" href="css/category.css">
+
   <link rel="stylesheet" href="css/product-modal.css">
+
 </head>
 
-<body>
 
-  <!-- NAVBAR -->
-
-  <header class="navbar">
-
-    <a class="logo" href="index.html">
-      RAYY
-    </a>
-
-    <nav class="nav-links" id="navLinks">
-
-      <a href="index.html">
-        Home
-      </a>
-
-      <a class="active" href="collections.html">
-        Collections
-      </a>
-
-      <a href="contact.html">
-        Contact
-      </a>
-
-    </nav>
-
-    <button
-      class="menu-toggle"
-      id="menuToggle"
-      aria-label="Toggle navigation"
-    >
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
-  </header>
+<body class="category-template-page">
 
 
-  <!-- MAIN -->
+  <header class="navbar"></header>
+
+
+
+  <!-- ================= MAIN ================= -->
 
   <main class="category-page">
 
+
     <!-- CATEGORY HEADER -->
 
-    <section class="category-header">
+    <section class="page-header">
 
-      <p class="section-label">
-        RAYY COLLECTION
-      </p>
+      <div class="page-header-title">
+        <a href="collections.html" class="back-btn"
+          onclick="if(document.referrer.includes(window.location.host)){history.back();return false;}">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
+          </svg>
+          <span>Back</span>
+        </a>
 
-      <h1 id="categoryTitle">
-        COLLECTION
-      </h1>
+        <div class="technical-header-meta" id="categoryTechnicalMeta">
+          <span>[ BRAND: RAYY ]</span>
+          <span>[ SEASON: SS26 ]</span>
+          <span id="metaCategoryTag">[ INDEX // LATEST ]</span>
+        </div>
 
-      <p
-        class="category-description"
-        id="categoryDescription"
-      >
-        Explore the latest RAYY pieces.
-      </p>
+        <h1 id="categoryTitle">
+          COLLECTION
+        </h1>
+      </div>
+
+      <div class="page-header-aside">
+        <div class="technical-spec-block animate-aside" id="categorySpecBlock">
+          <div class="spec-row">
+            <span class="spec-label">FABRIC:</span>
+            <span id="specFabric" class="spec-value">...</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-label">FIT PROFILE:</span>
+            <span id="specFit" class="spec-value">...</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-label">GSM WEIGHTS:</span>
+            <span id="specGsm" class="spec-value">...</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-label">DETAILS:</span>
+            <span id="specDetails" class="spec-value">...</span>
+          </div>
+        </div>
+        <p class="page-header-description" id="categoryDescription">
+          Explore the latest RAYY pieces.
+        </p>
+      </div>
 
     </section>
 
 
-    <!-- PRODUCT GRID -->
+
+    <!-- ================= PRODUCTS ================= -->
 
     <section class="products-section">
 
-      <div
-        class="product-grid"
-        id="productGrid"
-      >
-        <!--
-          Products will be inserted here
-          dynamically using category.js
-        -->
+      <div class="product-grid" id="productGrid">
       </div>
 
-      <div
-        class="empty-state"
-        id="emptyState"
-        hidden
-      >
+
+      <div class="empty-state" id="emptyState" hidden>
+
         <h2>
           No products found.
         </h2>
@@ -102,6 +100,7 @@
         <p>
           This collection doesn't have any products yet.
         </p>
+
       </div>
 
     </section>
@@ -109,117 +108,116 @@
   </main>
 
 
-  <!-- PRODUCT PREVIEW MODAL -->
 
-  <div
-    class="product-modal"
-    id="productModal"
-    aria-hidden="true"
-  >
+  <!-- ================================================= -->
+  <!-- PRODUCT PREVIEW MODAL -->
+  <!-- ================================================= -->
+
+  <div class="product-modal" id="productModal" aria-hidden="true">
+
 
     <!-- Overlay -->
 
-    <div
-      class="product-modal-overlay"
-      id="productModalOverlay"
-    ></div>
+    <div class="product-modal-overlay" id="productModalOverlay">
+    </div>
+
 
 
     <!-- Modal -->
 
-    <div
-      class="product-modal-content"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="modalProductTitle"
-    >
+    <div class="product-modal-content" role="dialog" aria-modal="true" aria-labelledby="modalProductTitle">
 
-      <!-- Close Button -->
 
-      <button
-        class="product-modal-close"
-        id="productModalClose"
-        aria-label="Close product preview"
-      >
-        ×
+      <!-- CLOSE -->
+
+      <button class="product-modal-close" id="productModalClose" aria-label="Close product preview">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+          <path
+            d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+        </svg>
       </button>
 
 
-      <!-- Product Image -->
+
+      <!-- PRODUCT IMAGE -->
 
       <div class="product-modal-image-wrapper">
 
-        <img
-          id="modalProductImage"
-          src=""
-          alt=""
-        >
+        <img id="modalProductImage" src="" alt="" class="smooth-load-image">
 
       </div>
 
 
-      <!-- Product Information -->
+
+      <!-- PRODUCT INFORMATION -->
 
       <div class="product-modal-info">
 
-        <p
-          class="modal-product-category"
-          id="modalProductCategory"
-        >
+
+        <p class="modal-product-category" id="modalProductCategory">
           PRODUCT
         </p>
+
 
         <h2 id="modalProductTitle">
           Product Name
         </h2>
 
-        <p
-          class="modal-product-price"
-          id="modalProductPrice"
-        >
+
+        <p class="modal-product-price" id="modalProductPrice">
           ₹0
         </p>
 
-        <p
-          class="modal-product-description"
-          id="modalProductDescription"
-        >
+
+        <p class="modal-product-description" id="modalProductDescription">
           Product description.
         </p>
 
 
-        <!-- Future options -->
 
-        <div
-          class="modal-product-options"
-          id="modalProductOptions"
-        >
-          <!--
-            Color and size selectors
-            will be added later.
-          -->
+        <!-- ================= SIZE ================= -->
+
+        <div class="product-option">
+
+          <div class="option-header">
+
+            <span>
+              SIZE
+            </span>
+
+            <button type="button" class="size-guide-button" id="sizeGuideButton">
+              VIEW SIZE GUIDE
+            </button>
+
+          </div>
+
+
+          <div class="size-options" id="sizeOptions">
+          </div>
+
+
+          <p class="size-error" id="sizeError">
+            Please select a size.
+          </p>
+
         </div>
 
 
-        <!-- ACTION BUTTONS -->
+
+        <!-- ================= ACTIONS ================= -->
 
         <div class="modal-actions">
 
-          <button
-            class="modal-btn modal-btn-primary"
-            id="modalBuyButton"
-            type="button"
-          >
+
+          <button class="modal-btn modal-btn-primary" id="modalBuyButton" type="button">
             BUY NOW
           </button>
 
-          <button
-            class="modal-btn modal-btn-secondary"
-            id="modalCustomizeButton"
-            type="button"
-          >
+
+          <button class="modal-btn modal-btn-secondary" id="modalCustomizeButton" type="button">
             CUSTOMIZE
           </button>
+
 
         </div>
 
@@ -230,14 +228,51 @@
   </div>
 
 
-  <!-- JAVASCRIPT -->
+
+  <!-- ================================================= -->
+  <!-- SIZE GUIDE MODAL -->
+  <!-- ================================================= -->
+
+  <div class="size-guide-modal" id="sizeGuideModal" aria-hidden="true">
+
+    <div class="size-guide-overlay" id="sizeGuideOverlay">
+    </div>
+
+
+    <div class="size-guide-content">
+
+
+      <button class="size-guide-close" id="sizeGuideClose" aria-label="Close size guide">
+        ×
+      </button>
+
+
+      <p class="section-label">
+        RAYY SIZE GUIDE
+      </p>
+
+
+      <h2 id="sizeGuideTitle">
+        SIZE GUIDE
+      </h2>
+
+
+      <img id="sizeGuideImage" src="" alt="RAYY size guide">
+
+    </div>
+
+  </div>
+
+
+
+  <!-- ================= JAVASCRIPT ================= -->
 
   <script src="js/main.js"></script>
 
-  <script
-    type="module"
-    src="js/category.js"
-  ></script>
+
+  <script type="module" src="js/category.js"></script>
+
 
 </body>
+
 </html>
