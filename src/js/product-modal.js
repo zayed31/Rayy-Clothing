@@ -585,15 +585,12 @@ buyButton.addEventListener(
     // ======================================
 
     const message =
-
-      `Hi RAYY, I would like to order:
-
-Product: ${currentProduct.title}
-Product ID: ${currentProduct.id}
+      `Hi RAYY, 
+I'm interested in buying this:
+Product: ${currentProduct.title} (ID: ${currentProduct.id})
 Size: ${selectedSize}
-Price: ₹${currentProduct.price}
 
-Please let me know the next steps.`;
+Please let me know how to proceed with the order.`;
 
 
     openWhatsApp(
@@ -617,16 +614,34 @@ customizeButton.addEventListener(
     }
 
 
-    /*
-      We will implement the
-      customization flow later.
+    // Size is required
 
-      For now this just sends
-      the user to the customize page.
-    */
+    if (!selectedSize) {
 
-    window.location.href =
-      `customize.html?product=${currentProduct.id}`;
+      sizeError.classList.add(
+        "visible"
+      );
+
+      return;
+
+    }
+
+
+    // ======================================
+    // WHATSAPP MESSAGE (CUSTOMIZE)
+    // ======================================
+
+    const message =
+      `Hi RAYY, I'm interested in customizing this:
+Product: ${currentProduct.title} (ID: ${currentProduct.id})
+Size: ${selectedSize}
+
+I would like to discuss custom design options for this piece.`;
+
+
+    openWhatsApp(
+      message
+    );
 
   }
 );

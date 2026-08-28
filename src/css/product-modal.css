@@ -95,7 +95,7 @@ body.modal-open {
 
   max-height: 90vh;
 
-  overflow-y: auto;
+  overflow: hidden;
 
   background: #f7f7f5;
 
@@ -201,7 +201,9 @@ body.modal-open {
 
 .product-modal-image-wrapper {
 
-  min-height: 600px;
+  height: 100%;
+
+  min-height: 560px;
 
   background: #ffffff;
 
@@ -272,13 +274,33 @@ body.modal-open {
 
 .product-modal-info {
 
-  padding: 70px 55px;
+  padding: 55px 50px;
 
   display: flex;
 
   flex-direction: column;
 
-  justify-content: center;
+  justify-content: start;
+
+  overflow-y: auto;
+
+  max-height: 90vh;
+
+  overscroll-behavior: contain;
+
+}
+
+.product-modal-info::-webkit-scrollbar {
+
+  width: 4px;
+
+}
+
+.product-modal-info::-webkit-scrollbar-thumb {
+
+  background: rgba(0, 0, 0, 0.15);
+
+  border-radius: 4px;
 
 }
 
@@ -438,6 +460,8 @@ body.modal-open {
 
   background: transparent;
 
+  color: #090909;
+
   font-family: inherit;
 
   font-size: 12px;
@@ -446,26 +470,34 @@ body.modal-open {
 
   cursor: pointer;
 
+  display: inline-flex;
+
+  justify-content: center;
+
+  align-items: center;
+
   transition:
-    background 0.2s ease,
     color 0.2s ease,
+    background-color 0.2s ease,
     border-color 0.2s ease;
 
 }
 
-
 .size-option:hover {
 
-  border-color: #000;
+  background: #090909;
+
+  color: #ffffff;
+
+  border-color: #090909;
 
 }
-
 
 .size-option.selected {
 
   background: #090909;
 
-  color: #fff;
+  color: #ffffff;
 
   border-color: #090909;
 
@@ -531,9 +563,26 @@ body.modal-open {
 
   cursor: pointer;
 
+  display: inline-flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  text-decoration: none;
+
   transition:
-    background 0.2s ease,
-    color 0.2s ease;
+    color 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+
+}
+
+.modal-btn * {
+
+  color: inherit;
+
+  transition: color 0.2s ease;
 
 }
 
@@ -542,14 +591,15 @@ body.modal-open {
 
   background: #090909;
 
-  color: #fff;
+  color: #ffffff;
 
 }
 
-
 .modal-btn-primary:hover {
 
-  background: #333;
+  background: #ffffff;
+
+  color: #090909;
 
 }
 
@@ -562,12 +612,11 @@ body.modal-open {
 
 }
 
-
 .modal-btn-secondary:hover {
 
   background: #090909;
 
-  color: #fff;
+  color: #ffffff;
 
 }
 
@@ -734,14 +783,26 @@ body.modal-open {
 
     max-height: 94vh;
 
+    overflow-y: auto;
+
+    overscroll-behavior: contain;
+
   }
 
 
   .product-modal-image-wrapper {
 
-    min-height: 350px;
+    min-height: 320px;
 
     max-height: 45vh;
+
+    height: auto;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 2;
 
   }
 
@@ -757,6 +818,10 @@ body.modal-open {
 
     padding:
       35px 25px 40px;
+
+    max-height: none;
+
+    overflow-y: visible;
 
   }
 

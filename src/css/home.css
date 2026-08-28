@@ -86,13 +86,74 @@
 .hero-visual img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
   mix-blend-mode: multiply;
 }
 
+/* ==========================================
+   HERO SLIDE UP ENTRANCE ANIMATIONS
+   ========================================== */
+
+.hero-copy .eyebrow,
+.hero-copy h1,
+.hero-copy .hero-subtitle,
+.hero-copy .hero-description,
+.hero-copy .feature-row,
+.hero-copy .btn,
+.hero-visual {
+  opacity: 0;
+  animation: fadeInUpSnappy 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+.hero-copy .eyebrow {
+  animation-delay: 0.05s;
+}
+
+.hero-copy h1 {
+  animation-delay: 0.15s;
+}
+
+.hero-copy .hero-subtitle {
+  animation-delay: 0.25s;
+}
+
+.hero-copy .hero-description {
+  animation-delay: 0.35s;
+}
+
+.hero-copy .feature-row {
+  animation-delay: 0.45s;
+}
+
+.hero-copy .btn {
+  animation-delay: 0.55s;
+}
+
+.hero-visual {
+  animation-delay: 0.3s;
+}
+
 .intro {
   border-top: 1px solid var(--border);
+}
+
+/* ==========================================
+   SECTION HEADINGS SLIDE UP ANIMATION
+   ========================================== */
+
+.section h2 {
+  opacity: 0;
+  transform: translateY(30px);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+.section.visible h2 {
+  animation: fadeInUpSnappy 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.1s;
 }
 
 .section-text {
@@ -110,16 +171,22 @@
   align-items: center;
 }
 
-.placeholder-image,
-.team-card {
+.split-image {
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(9, 9, 9, 0.05);
   background: #e3e3e1;
-  min-height: 450px;
-  display: grid;
-  place-items: center;
-  color: #888;
-  font-weight: 700;
-  letter-spacing: .1em;
 }
+
+.split-image img {
+  width: 100%;
+  height: 100%;
+  max-height: 520px;
+  object-fit: cover;
+  display: block;
+}
+
+
 
 .split-copy p:not(.section-label) {
   margin-top: 30px;
@@ -128,15 +195,49 @@
   line-height: 1.7;
 }
 
-.team-grid {
+.craft-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 30px;
   margin-top: 60px;
 }
 
-.team-card {
-  min-height: 350px;
+.craft-card {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 42px 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+.craft-icon {
+  width: 52px;
+  height: 52px;
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.craft-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.craft-info h3 {
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+  color: var(--black);
+}
+
+.craft-info p {
+  font-size: 15px;
+  line-height: 1.65;
+  color: #666;
 }
 
 .cta {
@@ -154,6 +255,8 @@
 @media (max-width: 1000px) {
   .hero {
     grid-template-columns: 1fr;
+    min-height: auto;
+    padding: 35px 4vw 25px;
   }
 
   .hero-visual {
@@ -161,26 +264,42 @@
   }
 
   .hero-visual img {
-    max-height: 650px;
+    max-height: 520px;
   }
 
-  .split-section,
-  .team-grid {
+  .split-section {
     grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .approach-section {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .craft-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 40px;
   }
 }
 
 @media (max-width: 600px) {
   .hero {
-    padding-top: 35px;
+    padding: 25px 4vw 20px;
   }
 
   .hero h1 {
-    font-size: 18vw;
+    font-size: clamp(3.2rem, 14vw, 4.8rem);
+  }
+
+  .hero-description {
+    margin: 18px 0;
   }
 
   .feature-row {
     grid-template-columns: repeat(2, 1fr);
+    margin: 20px 0;
   }
 
   .feature:nth-child(2) {
@@ -191,8 +310,38 @@
     border-bottom: 1px solid #ddd;
   }
 
+  .section-text {
+    margin-top: 20px;
+    font-size: 16px;
+  }
+
+  .split-section {
+    gap: 28px;
+  }
+
+  .split-copy p:not(.section-label) {
+    margin-top: 16px;
+    font-size: 15px;
+  }
+
+  .craft-grid {
+    margin-top: 28px;
+    gap: 16px;
+  }
+
+  .craft-card {
+    padding: 28px 22px;
+  }
+
+  .craft-icon {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 18px;
+  }
+
   .cta-actions {
     flex-direction: column;
+    margin-top: 25px;
   }
 
   .btn {

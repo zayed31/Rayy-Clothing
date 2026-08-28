@@ -10,7 +10,10 @@ function initNavbar() {
   const isContact = filename === "contact.html";
 
   navbarElement.innerHTML = `
-    <a class="logo" href="index.html">RAYY</a>
+    <a class="logo" href="index.html">
+      <img src="assets/additionalimages/favicon.png" alt="RAYY logo" class="logo-icon">
+      
+    </a>
 
     <nav class="nav-links" id="navLinks">
       <a href="index.html"${isHome ? ' class="active"' : ''}>Home</a>
