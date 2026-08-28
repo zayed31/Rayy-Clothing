@@ -314,7 +314,87 @@ function renderProducts() {
   );
 
   initProductScrollObserver();
+  updateCategorySEO(category, categoryMeta[category], categoryProducts);
 
+}
+
+
+// ==========================================
+// DYNAMIC SEO & SCHEMA UPDATER
+// ==========================================
+
+function updateCategorySEO(categoryKey, info, products) {
+  if (!info) return;
+
+  const pageTitle = `${info.title} — RAYY | Premium Streetwear Collection`;
+  document.title = pageTitle;
+
+  const metaDesc = document.querySelector('meta[name="description"]');
+  if (metaDesc) metaDesc.setAttribute("content", info.description);
+
+  const ogTitle = document.getElementById("ogTitle");
+  if (ogTitle) ogTitle.setAttribute("content", pageTitle);
+
+  const ogDesc = document.getElementById("ogDesc");
+  if (ogDesc) ogDesc.setAttribute("content", info.description);
+
+  const schemaScript = document.getElementById("categorySchema");
+  if (schemaScript && Array.isArray(products)) {
+    const productItems = products.map((prod, idx) => ({
+      "@type": "Product",
+      "position": idx + 1,
+      "name": prod.title,
+      "image": prod.images && prod.images[0] ? prod.images[0] : "",
+      "description": `${prod.title} - ${info.title} by RAYY.`,
+      "brand": {
+        "@type": "Brand",
+        "name": "RAYY"
+      },
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "availability": "https://schema.org/InStock",
+        "url": window.location.href
+      }
+    }));
+
+    const schemaData = {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://rayyclothing.com"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Collections",
+              "item": "https://rayyclothing.com/collections.html"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": info.title,
+              "item": window.location.href
+            }
+          ]
+        },
+        {
+          "@type": "ItemList",
+          "name": info.title,
+          "description": info.description,
+          "itemListElement": productItems
+        }
+      ]
+    };
+
+    schemaScript.textContent = JSON.stringify(schemaData, null, 2);
+  }
 }
 
 
