@@ -173,10 +173,11 @@ h2 span {
 }
 
 .btn {
-  display: inline-flex;
-  justify-content: space-between;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
   align-items: center;
-  min-width: 180px;
+  min-width: 220px;
   padding: 17px 22px;
   font-size: 12px;
   font-weight: 800;

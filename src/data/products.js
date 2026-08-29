@@ -66,7 +66,9 @@ export const products = [
 
     title: "RAYY Off-White Drop Shoulder Hoodie",
 
-    price: 1599,
+    mrp: 1599,
+
+    price: 699,
 
     image: "assets/products/oversizehoodies/osh001.webp",
 
@@ -83,7 +85,9 @@ export const products = [
 
     title: "RAYY Pitch Black Drop Shoulder Hoodie",
 
-    price: 1599,
+    mrp: 1599,
+
+    price: 699,
 
     image: "assets/products/oversizehoodies/osh002.webp",
 
@@ -100,7 +104,9 @@ export const products = [
 
     title: "RAYY Pure White Drop Shoulder Hoodie",
 
-    price: 1599,
+    mrp: 1599,
+
+    price: 699,
 
     image: "assets/products/oversizehoodies/osh003.webp",
 
@@ -140,7 +146,9 @@ export const products = [
 
     title: "RAYY Vintage Brown Oversized Tee",
 
-    price: 899,
+    mrp: 899,
+
+    price: 400,
 
     image: "assets/products/oversizes/os001.webp",
 
@@ -157,7 +165,9 @@ export const products = [
 
     title: "RAYY Crisp White Oversized Tee",
 
-    price: 899,
+    mrp: 899,
+
+    price: 400,
 
     image: "assets/products/oversizes/os002.webp",
 
@@ -174,7 +184,9 @@ export const products = [
 
     title: "RAYY Midnight Navy Oversized Tee",
 
-    price: 899,
+    mrp: 899,
+
+    price: 400,
 
     image: "assets/products/oversizes/os003.webp",
 
@@ -191,7 +203,9 @@ export const products = [
 
     title: "RAYY Raw Off-White Oversized Tee",
 
-    price: 899,
+    mrp: 899,
+
+    price: 400,
 
     image: "assets/products/oversizes/os004.webp",
 
@@ -208,7 +222,9 @@ export const products = [
 
     title: "RAYY Dusty Pink Oversized Tee",
 
-    price: 949,
+    mrp: 949,
+
+    price: 400,
 
     image: "assets/products/oversizes/os005.webp",
 
@@ -225,7 +241,9 @@ export const products = [
 
     title: "RAYY Pastel Lavender Oversized Tee",
 
-    price: 899,
+    mrp: 899,
+
+    price: 400,
 
     image: "assets/products/oversizes/os006.webp",
 
@@ -242,7 +260,9 @@ export const products = [
 
     title: "RAYY Pitch Black Oversized Tee",
 
-    price: 899,
+    mrp: 899,
+
+    price: 400,
 
     image: "assets/products/oversizes/os007.webp",
 
@@ -259,7 +279,9 @@ export const products = [
 
     title: "RAYY Burgundy Maroon Oversized Tee",
 
-    price: 949,
+    mrp: 949,
+
+    price: 400,
 
     image: "assets/products/oversizes/os008.webp",
 
@@ -278,7 +300,9 @@ export const products = [
 
     title: "RAYY Lavender Classic Polo",
 
-    price: 899,
+    mrp: 999,
+
+    price: 425,
 
     image: "assets/products/polos/pt001.webp",
 
@@ -295,7 +319,9 @@ export const products = [
 
     title: "RAYY Mustard Yellow Classic Polo",
 
-    price: 899,
+    mrp: 999,
+
+    price: 425,
 
     image: "assets/products/polos/pt002.webp",
 
@@ -312,7 +338,9 @@ export const products = [
 
     title: "RAYY Crimson Red Classic Polo",
 
-    price: 899,
+    mrp: 999,
+
+    price: 425,
 
     image: "assets/products/polos/pt003.webp",
 
@@ -329,7 +357,9 @@ export const products = [
 
     title: "RAYY Royal Blue Classic Polo",
 
-    price: 899,
+    mrp: 999,
+
+    price: 425,
 
     image: "assets/products/polos/pt004.webp",
 
@@ -346,7 +376,9 @@ export const products = [
 
     title: "RAYY Heather Grey Classic Polo",
 
-    price: 899,
+    mrp: 999,
+
+    price: 425,
 
     image: "assets/products/polos/pt005.webp",
 
@@ -363,7 +395,9 @@ export const products = [
 
     title: "RAYY Midnight Navy Classic Polo",
 
-    price: 899,
+    mrp: 999,
+
+    price: 425,
 
     image: "assets/products/polos/pt006.webp",
 
@@ -380,7 +414,9 @@ export const products = [
 
     title: "RAYY Maroon Burgundy Classic Polo",
 
-    price: 899,
+    mrp: 999,
+
+    price: 425,
 
     image: "assets/products/polos/pt007.webp",
 
@@ -397,7 +433,9 @@ export const products = [
 
     title: "RAYY Pitch Black Classic Polo",
 
-    price: 899,
+    mrp: 999,
+
+    price: 425,
 
     image: "assets/products/polos/pt008.webp",
 
@@ -414,7 +452,9 @@ export const products = [
 
     title: "RAYY Forest Green Classic Polo",
 
-    price: 899,
+    mrp: 999,
+
+    price: 425,
 
     image: "assets/products/polos/pt009.webp",
 
