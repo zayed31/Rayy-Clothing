@@ -34,6 +34,7 @@ function initNavbar() {
   if (menuToggle && navLinks) {
     menuToggle.addEventListener("click", () => {
       navLinks.classList.toggle("open");
+      menuToggle.classList.toggle("open");
     });
   }
 }
