@@ -743,8 +743,12 @@ function closeSizeGuide() {
   );
 
 
-  sizeGuideImage.src =
-    "";
+  // Delay clearing the image source until the fade-out transition completes (300ms)
+  setTimeout(() => {
+    if (!sizeGuideModal.classList.contains("active")) {
+      sizeGuideImage.src = "";
+    }
+  }, 300);
 
 }
 
