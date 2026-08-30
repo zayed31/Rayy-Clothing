@@ -633,7 +633,8 @@ h2 span {
 
 /* Word Reveal Animations */
 .collections-page .page-header h1 .word-wrap,
-.category-template-page .page-header h1 .word-wrap {
+.category-template-page .page-header h1 .word-wrap,
+.contact-template-page .page-header h1 .word-wrap {
   display: inline-block;
   overflow: hidden;
   vertical-align: bottom;
@@ -642,7 +643,8 @@ h2 span {
 }
 
 .collections-page .page-header h1 .animate-word,
-.category-template-page .page-header h1 .animate-word {
+.category-template-page .page-header h1 .animate-word,
+.contact-template-page .page-header h1 .animate-word {
   display: inline-block;
   transform: translateY(105%);
   opacity: 0;
@@ -651,17 +653,20 @@ h2 span {
 }
 
 .collections-page .page-header h1 .delay-1,
-.category-template-page .page-header h1 .delay-1 {
+.category-template-page .page-header h1 .delay-1,
+.contact-template-page .page-header h1 .delay-1 {
   animation-delay: 0.15s;
 }
 
 .collections-page .page-header h1 .delay-2,
-.category-template-page .page-header h1 .delay-2 {
+.category-template-page .page-header h1 .delay-2,
+.contact-template-page .page-header h1 .delay-2 {
   animation-delay: 0.28s;
 }
 
 .collections-page .page-header h1 .delay-3,
-.category-template-page .page-header h1 .delay-3 {
+.category-template-page .page-header h1 .delay-3,
+.contact-template-page .page-header h1 .delay-3 {
   animation-delay: 0.4s;
 }
 
@@ -816,4 +821,30 @@ h2 span {
     margin-top: 20px;
     margin-bottom: 20px;
   }
+}
+
+/* ==========================================
+   CONTACT PAGE ENTRANCE
+   ========================================== */
+
+.contact-template-page .section-label,
+.contact-template-page .page-header-description,
+.contact-template-page #contactBtn {
+  opacity: 0;
+  animation: fadeInUpSnappy 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+.contact-template-page .section-label {
+  animation-delay: 0.05s;
+}
+
+.contact-template-page .page-header-description {
+  animation-delay: 0.5s;
+}
+
+.contact-template-page #contactBtn {
+  transform: translateY(30px);
+  animation-delay: 0.62s;
 }
