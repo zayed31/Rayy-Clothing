@@ -46,18 +46,18 @@
 
   cursor: pointer;
 
-  background: #ffffff;
+  background: var(--white);
 
-  border: 1px solid #e8e8e6;
+  border: 1px solid var(--border);
 
-  border-radius: 8px;
+  border-radius: 6px;
 
   padding: 14px;
 
   transition:
-    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
 
 }
 
@@ -65,12 +65,12 @@
 .product-card:hover {
 
   transform:
-    translateY(-8px);
+    translate(-4px, -4px);
 
   border-color: var(--black);
 
   box-shadow:
-    0 16px 36px rgba(9, 9, 9, 0.08);
+    6px 6px 0px var(--black);
 
 }
 

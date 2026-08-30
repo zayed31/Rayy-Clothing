@@ -79,8 +79,15 @@
    MAKE IT YOURS (FULL WIDTH PROCESS SECTION)
    ========================================== */
 
+.make-it-yours-wrapper {
+  background-color: var(--accent-soft);
+  border-top: 2px solid var(--black);
+  border-bottom: 2px solid var(--black);
+  width: 100%;
+}
+
 .make-it-yours-section {
-  border-top: 1px solid var(--border);
+  border-top: 0;
 }
 
 .process-header {
@@ -128,18 +135,18 @@
   border: 1px solid var(--border);
   border-radius: 6px;
   padding: 34px 26px;
-  background: #fafaf9;
+  background: var(--white);
   display: flex;
   flex-direction: column;
-  justify-content:flex-start;
+  justify-content: flex-start;
   gap: 24px;
   transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .process-card:hover {
-  transform: translateY(-4px);
-  border-color: #090909;
-  box-shadow: 0 12px 30px rgba(9, 9, 9, 0.06);
+  transform: translate(-4px, -4px);
+  border-color: var(--black);
+  box-shadow: 6px 6px 0px var(--black);
 }
 
 .process-card-icon {
@@ -246,7 +253,7 @@
 }
 
 .intro {
-  border-top: 1px solid var(--border);
+  border-top: 0;
 }
 
 /* ==========================================
@@ -317,6 +324,14 @@
   padding: 42px 32px;
   display: flex;
   flex-direction: column;
+  background: var(--white);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.craft-card:hover {
+  transform: translate(-4px, -4px);
+  border-color: var(--black);
+  box-shadow: 6px 6px 0px var(--black);
 }
 
 .craft-icon {
@@ -349,9 +364,50 @@
   color: #666;
 }
 
+.cta-banner {
+  background-color: var(--black);
+  color: var(--white);
+  width: 100%;
+  border-top: 2px solid var(--black);
+}
+
 .cta {
   text-align: center;
-  border-top: 1px solid var(--border);
+  border-top: 0;
+}
+
+.cta h2 {
+  color: var(--white);
+}
+
+.cta .section-label {
+  color: var(--white);
+}
+
+.btn-solid-white {
+  background: var(--white);
+  color: var(--black);
+  border-color: var(--white);
+}
+
+.btn-solid-white:hover {
+  background: var(--black);
+  color: var(--white);
+  border-color: var(--white);
+  box-shadow: 4px 4px 0px var(--white);
+}
+
+.btn-outline-white {
+  background: transparent;
+  color: var(--white);
+  border: 2px solid var(--white);
+}
+
+.btn-outline-white:hover {
+  background: var(--black);
+  color: var(--white);
+  border-color: var(--white);
+  box-shadow: 4px 4px 0px var(--white);
 }
 
 .cta-actions {

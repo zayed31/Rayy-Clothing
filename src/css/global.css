@@ -219,16 +219,20 @@ h2 span {
   font-size: 12px;
   font-weight: 800;
   letter-spacing: .04em;
-  border: 1px solid var(--black);
+  border: 2px solid var(--black);
   cursor: pointer;
   text-decoration: none;
-  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
 }
 
 .btn * {
   color: inherit;
   fill: currentColor;
   transition: color 0.2s ease;
+}
+
+.btn:hover {
+  transform: translate(-4px, -4px);
 }
 
 .btn-dark {
@@ -239,6 +243,7 @@ h2 span {
 .btn-dark:hover {
   background: var(--white);
   color: var(--black);
+  box-shadow: 4px 4px 0px var(--black);
 }
 
 .btn-light {
@@ -247,8 +252,9 @@ h2 span {
 }
 
 .btn-light:hover {
-  background: var(--black);
-  color: var(--white);
+  background: var(--accent-soft);
+  color: var(--black);
+  box-shadow: 4px 4px 0px var(--black);
 }
 
 .page-shell {

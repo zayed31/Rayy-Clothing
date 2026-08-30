@@ -44,23 +44,27 @@ function initNavbar() {
   const activeLink = navLinks ? navLinks.querySelector("a.active") : null;
 
   if (indicator && activeLink && window.innerWidth > 800) {
-    // Position indicator instantly initially on load
-    indicator.style.transition = "none";
-    indicator.style.left = activeLink.offsetLeft + "px";
-    indicator.style.width = activeLink.offsetWidth + "px";
+    const updatePosition = () => {
+      indicator.style.transition = "none";
+      indicator.style.left = activeLink.offsetLeft + "px";
+      indicator.style.width = activeLink.offsetWidth + "px";
+      indicator.offsetHeight; // Force reflow
+      indicator.style.transition = "left 0.35s cubic-bezier(0.16, 1, 0.3, 1), width 0.35s cubic-bezier(0.16, 1, 0.3, 1)";
+    };
 
-    // Force reflow
-    indicator.offsetHeight;
+    // Position indicator instantly on load
+    updatePosition();
 
-    // Restore transition
-    indicator.style.transition = "left 0.35s cubic-bezier(0.16, 1, 0.3, 1), width 0.35s cubic-bezier(0.16, 1, 0.3, 1)";
+    // Re-verify layouts when window loads and fonts are loaded to avoid alignment drifts
+    window.addEventListener("load", updatePosition);
+    if (document.fonts) {
+      document.fonts.ready.then(updatePosition);
+    }
 
     // Update position on window resize
     window.addEventListener("resize", () => {
-      if (window.innerWidth > 800 && indicator && activeLink) {
-        indicator.style.transition = "none";
-        indicator.style.left = activeLink.offsetLeft + "px";
-        indicator.style.width = activeLink.offsetWidth + "px";
+      if (window.innerWidth > 800) {
+        updatePosition();
       }
     });
   }
