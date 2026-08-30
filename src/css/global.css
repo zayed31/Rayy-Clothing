@@ -1,8 +1,9 @@
 :root {
-  --black: #090909;
-  --white: #f7f7f5;
-  --muted: #777;
-  --border: #d8d8d8;
+  --black: #0B0B0C;
+  --white: #FAF9F6;
+  --muted: #807F7C;
+  --border: #E3E1DC;
+  --accent-soft: #F1EFEC;
   --max-width: 1500px;
 }
 
@@ -33,10 +34,14 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid #e5e5e5;
-  position: relative;
-  z-index: 10;
-  background: rgba(247, 247, 245, .96);
+  border-bottom: 2px solid var(--black);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(250, 249, 246, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 30px rgba(11, 11, 12, 0.03);
 }
 
 .logo {
@@ -69,14 +74,14 @@ a {
   position: relative;
 }
 
-.nav-links a.active::after {
-  content: "";
+.nav-indicator {
   position: absolute;
   height: 2px;
   background: var(--black);
+  bottom: 20px;
   left: 0;
-  right: 0;
-  bottom: -9px;
+  width: 0;
+  pointer-events: none;
 }
 
 .menu-toggle {
@@ -372,8 +377,10 @@ h2 span {
 }
 
 .footer {
-  padding: 40px 5vw;
-  border-top: 1px solid var(--border);
+  padding: 60px 5vw;
+  border-top: 2px solid var(--black);
+  background: var(--black);
+  color: var(--white);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -384,11 +391,20 @@ h2 span {
 .footer .logo-icon {
   width: 110px;
   height: 30px;
+  filter: brightness(0) invert(1);
 }
 
 .footer p {
-  color: var(--muted);
+  color: #8c8c88;
   font-size: 13px;
+  font-weight: 500;
+}
+
+.footer .footer-tagline {
+  color: var(--white);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
 @media (min-width: 801px) {
@@ -428,7 +444,7 @@ h2 span {
     flex-direction: column;
     align-items: flex-start;
     background: var(--white);
-    border-bottom: 1px solid var(--border);
+    border-bottom: 2px solid var(--black);
     opacity: 0;
     visibility: hidden;
     transform: translateY(-10px);
@@ -451,6 +467,8 @@ h2 span {
       opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
       transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   }
+
+
 
   .nav-links.open a {
     opacity: 1;
@@ -788,21 +806,26 @@ h2 span {
   max-width: 380px;
   font-family: monospace;
   font-size: 11px;
-  border-top: 1px solid var(--black);
+  border: 2px solid var(--black);
+  background: var(--accent-soft);
+  padding: 10px 20px;
   margin-bottom: 30px;
   opacity: 0;
   animation: fadeInUpSnappy 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   will-change: transform, opacity;
   animation-delay: 0.5s;
-  /* Animates at the same time as the description */
 }
 
 .spec-row {
   display: flex;
   justify-content: space-between;
-  padding: 10.5px 0;
-  border-bottom: 1px solid var(--border);
+  padding: 12px 0;
+  border-bottom: 1px dashed var(--border);
   gap: 15px;
+}
+
+.spec-row:last-child {
+  border-bottom: none;
 }
 
 .spec-label {
