@@ -391,6 +391,20 @@ h2 span {
   font-size: 13px;
 }
 
+@media (min-width: 801px) {
+  .footer>* {
+    flex: 1;
+  }
+
+  .footer-tagline {
+    text-align: center;
+  }
+
+  .footer-rights {
+    text-align: right;
+  }
+}
+
 @media (max-width: 800px) {
   .navbar {
     height: 70px;
