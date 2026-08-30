@@ -2,6 +2,7 @@
    BODY
    ========================================== */
 
+html.modal-open,
 body.modal-open {
   overflow: hidden;
 }
@@ -930,7 +931,7 @@ body.modal-open {
 
     grid-template-columns: 1fr;
 
-    max-height: calc(100vh - 30px);
+    max-height: calc(100dvh - 30px);
 
     margin-top: 5px;
 

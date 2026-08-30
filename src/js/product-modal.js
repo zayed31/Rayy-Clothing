@@ -321,6 +321,17 @@ export function openProductPreview(
   );
 
 
+  // Reset scroll of the modal content so it starts at the top
+  const modalContent = document.querySelector(".product-modal-content");
+  if (modalContent) {
+    modalContent.scrollTop = 0;
+  }
+
+
+  document.documentElement.classList.add(
+    "modal-open"
+  );
+
   document.body.classList.add(
     "modal-open"
   );
@@ -449,6 +460,10 @@ export function closeProductPreview() {
     "true"
   );
 
+
+  document.documentElement.classList.remove(
+    "modal-open"
+  );
 
   document.body.classList.remove(
     "modal-open"
