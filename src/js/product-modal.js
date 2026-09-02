@@ -604,7 +604,7 @@ buyButton.addEventListener(
 I'm interested in buying this:
 Product: ${currentProduct.title} (ID: ${currentProduct.id})
 Size: ${selectedSize}
-Price: ₹${currentProduct.price} + ₹50 Delivery Charge
+Price: ₹${currentProduct.price} + Delivery Charge
 
 Please let me know how to proceed with the order.`;
 
